@@ -62,7 +62,7 @@ const Signup = () => {
         setAuth({ ...auth,  token: res.data.token, user: res.data.user._id});
         localStorage.setItem("auth", JSON.stringify({token: res.data.token,user: res.data.user._id}));
         toast.success(res.data.message);
-        navigate("/home");
+        navigate("/");
       } else {
         console.log(res.data.message);
       }

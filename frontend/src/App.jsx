@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import Jobs from './components/Jobs'
 import Error from './pages/Error'
 import Browse from './components/Browse'
+import Profile from './components/Profile'
 const App = () => {
   return (
    <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/jobs" element={<Jobs/>}/>
           <Route path="/browse" element={<Browse/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="*" element={<Error/>}/>
 
       </Routes>

@@ -9,6 +9,7 @@ import Jobs from './components/Jobs'
 import Error from './pages/Error'
 import Browse from './components/Browse'
 import Profile from './components/Profile'
+import JobDescription from './components/JobDescription'
 const App = () => {
   return (
    <BrowserRouter>
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/jobs" element={<Jobs/>}/>
           <Route path="/browse" element={<Browse/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/description/:id" element={<JobDescription/>}/>
           <Route path="*" element={<Error/>}/>
 
       </Routes>

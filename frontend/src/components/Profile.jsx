@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Contact, Mail, Pen } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Label } from "./ui/label";
 import AppliedJobTable from "./AppliedJobTable";
+import UpdateProfilePopup from "./UpdateProfilePopup";
 
 const skills = ["HTML", "CSS", "JS", "React", "MongoDB", "NodeJs", "Express"];
+const isResume = true;
 
 const Profile = () => {
-  const isResume = true;
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -20,14 +22,18 @@ const Profile = () => {
               <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYaWYMlsxD_hH16V6izW6xCStu2mWlnivcnA&s" />
             </Avatar>
             <div>
-              <h1 className=" font-medium text-xl">Full Name</h1>
+              <h1 className=" font-medium text-xl">name</h1>
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus
                 id molestias, quis quos hic aliquid?
               </p>
             </div>
           </div>
-          <Button variant="outline" className=" text-right">
+          <Button
+            onClick={() => setOpen(true)}
+            variant="outline"
+            className=" text-right"
+          >
             <Pen />
           </Button>
         </div>
@@ -68,10 +74,11 @@ const Profile = () => {
           )}
         </div>
       </div>
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl">
         <h1 className="font-bold text-lg my-5">Applied Jobs</h1>
-          <AppliedJobTable/> 
-        </div>
+        <AppliedJobTable />
+      </div>
+      <UpdateProfilePopup open={open} setOpen={setOpen} />
     </div>
   );
 };

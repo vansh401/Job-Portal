@@ -17,7 +17,7 @@ export const register = async (req, res) => {
     
     const { fullname, email, phoneNumber, password, role} = req.fields;
     
-    if (!fullname || !email || !phoneNumber || !password || !role ) {
+    if (!fullname || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
         message: "All Credentials required",
         success: false,
@@ -38,7 +38,6 @@ export const register = async (req, res) => {
       phoneNumber,
       password,
       role,
-
     });
     if(photo){
       
@@ -169,4 +168,15 @@ export const getPhoto = async (req, res) => {
   }
   
   
+}
+
+export const profile= async(req,res)=>{
+
+  try {
+     return res.status(200).send({
+      user : req.user
+     });
+  } catch (error) {
+    console.log(error);
+  }
 }
